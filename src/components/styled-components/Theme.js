@@ -4,9 +4,12 @@ const ColorTheme = {
   colors: {
     primary: "#1a91da", // blue
     secondary: "#ffc107", // yellow
-    success: "#28a745", // green
+    success: "#2bcd36", // green
     danger: "#dc3545", // red
-    text: "#ffffff", // white
+    textLight: "#ffffff", // white
+    textDark: "#000000", // black
+    tertiary: "#e6e6e6;", // gray shadows
+    quaternary: "rgba(0, 0, 0, 0.16)", // dark Black shadows
   },
 };
 

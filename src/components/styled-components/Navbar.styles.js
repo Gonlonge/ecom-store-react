@@ -4,7 +4,10 @@ import { FiShoppingCart } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export const NavBackground = styled.div`
+  margin-bottom: 50px;
   background-color: ${({ theme }) => theme.colors.primary};
+
+  box-shadow: 0px 12px 15px ${({ theme }) => theme.colors.quaternary};
 `;
 
 export const NavContainer = styled.nav`
@@ -72,10 +75,6 @@ export const CartIcon = styled(FiShoppingCart)`
   font-size: 1.5rem;
   color: #fff;
   cursor: pointer;
-
-  &:hover {
-    color: #ccc;
-  }
 `;
 
 export const HamburgerIcon = styled(GiHamburgerMenu)`
@@ -85,7 +84,7 @@ export const HamburgerIcon = styled(GiHamburgerMenu)`
   margin-left: 10px;
 
   &:hover {
-    color: #ccc;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   @media screen and (min-width: 768px) {

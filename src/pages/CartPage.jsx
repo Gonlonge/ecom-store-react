@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  border: 1px solid #ccc;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 4px;
   padding: 16px;
 `;

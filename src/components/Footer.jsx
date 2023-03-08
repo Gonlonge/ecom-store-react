@@ -1,18 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-
-const FooterWrapper = styled.footer`
-  background-color: ${({ theme }) => theme.colors.primary};
-  width: 100%;
-`;
-
-const FooterText = styled.p`
-  font-size: 14px;
-  color: white;
-  text-align: center;
-  padding: 50px;
-  margin-bottom: 0px;
-`;
+import {
+  FooterWrapper,
+  FooterText,
+} from "./styled-components/FooterWrapper.styles";
 
 function Footer() {
   return (

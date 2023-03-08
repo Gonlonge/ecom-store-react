@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   NavBackground,
   NavContainer,
@@ -23,8 +22,10 @@ const Nav = () => {
     <NavBackground>
       <MainContainer>
         <NavContainer>
-          <NavLogo to="/">eCom</NavLogo>
-          <HamburgerIcon onClick={toggleMobileMenu} />
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <NavLogo to="/">eCom</NavLogo>
+            <HamburgerIcon onClick={toggleMobileMenu} />
+          </div>
           <NavLinks showMobileMenu={showMobileMenu}>
             <li>
               <NavLink to="/">Home</NavLink>

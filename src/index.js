@@ -1,17 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import Theme from "./components/styled-components/Theme";
 import reportWebVitals from "./reportWebVitals";
+import ReactDOM from "react-dom/client";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <Theme>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Theme>,
-  document.getElementById("root")
+  </Theme>
 );
 
 reportWebVitals();
