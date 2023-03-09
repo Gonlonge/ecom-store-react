@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { MainContainer } from "../components/styled-components/Body.styles";
+import {
+  GridContainer,
+  GridItem,
+  GridItemImage,
+  GridItemContent,
+  GridItemTitle,
+  GridItemPrice,
+} from "../components/styled-components/Card.styles";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
@@ -16,7 +25,7 @@ function ProductPage() {
         setIsError(false);
 
         setIsLoading(true);
-        const response = await fetch(`${url}/posts/${id}`);
+        const response = await fetch(`${url}/${id}`);
         const json = await response.json();
         console.log(json);
         setPost(json);
@@ -40,13 +49,24 @@ function ProductPage() {
   }
 
   return (
-    <div>
-      <h1>Testing hard code this works</h1>
-      <h2>{post.title}</h2>
-      <p>{post.description}</p>
-      <img src={post.image} alt={post.title} />
-      <p>{post.content}</p>
-    </div>
+    <MainContainer>
+      <GridContainer>
+        <GridItem>
+          <GridItemImage src={post.imageUrl} alt={post.title} />
+          <GridItemContent>
+            <GridItemTitle>{post.title}</GridItemTitle>
+            <p> {post.description}</p>
+            {post.price !== post.discountedPrice && (
+              <GridItemPrice>{post.price}</GridItemPrice>
+            )}
+            <GridItemPrice isDiscounted={post.price !== post.discountedPrice}>
+              {post.discountedPrice}
+            </GridItemPrice>
+            <p>Rating: {post.rating}</p>
+          </GridItemContent>
+        </GridItem>
+      </GridContainer>
+    </MainContainer>
   );
 }
 
