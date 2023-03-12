@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import MainButton from "../components/styled-components/MainButton.styles";
 import { MainContainer } from "../components/styled-components/Body.styles";
 import {
   GridContainer,
@@ -8,9 +10,13 @@ import {
   GridItemContent,
   GridItemTitle,
   GridItemPrice,
-} from "../components/styled-components/Card.styles";
+} from "../components/styled-components/productPage.styles";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
+
+const RatingText = styled.p`
+  color: ${(props) => props.theme.colors.rating};
+`;
 
 function ProductPage() {
   const { id } = useParams();
@@ -55,14 +61,15 @@ function ProductPage() {
           <GridItemImage src={post.imageUrl} alt={post.title} />
           <GridItemContent>
             <GridItemTitle>{post.title}</GridItemTitle>
-            <p> {post.description}</p>
+            <p>{post.description}</p>
             {post.price !== post.discountedPrice && (
               <GridItemPrice>{post.price}</GridItemPrice>
             )}
             <GridItemPrice isDiscounted={post.price !== post.discountedPrice}>
               {post.discountedPrice}
             </GridItemPrice>
-            <p>Rating: {post.rating}</p>
+            <RatingText>Rating: {post.rating}</RatingText>
+            <MainButton>Add To Cart</MainButton>
           </GridItemContent>
         </GridItem>
       </GridContainer>

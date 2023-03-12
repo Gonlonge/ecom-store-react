@@ -5,8 +5,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 export const NavBackground = styled.div`
   margin-bottom: 50px;
-  background-color: ${({ theme }) => theme.colors.primary};
-
   box-shadow: 0px 12px 15px ${({ theme }) => theme.colors.quaternary};
 `;
 
@@ -14,10 +12,10 @@ export const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.text};
-  padding: 10px;
+  background: linear-gradient(to bottom, #f7d1c2, #f2b6a2, #eb9c85, #e38269);
 
+  color: ${({ theme }) => theme.colors.text};
+  padding: 20px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
@@ -37,7 +35,6 @@ export const NavSearch = styled.input`
   padding: 8px;
   border-radius: 5px;
   margin-left: 10px;
-
   @media screen and (max-width: 768px) {
     margin: 10px 0 0;
     width: 100%;
@@ -50,11 +47,9 @@ export const NavLinks = styled.ul`
   margin: 50;
   padding: 0;
   align-items: center;
-
   li {
     margin-left: 10px;
   }
-
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
@@ -63,12 +58,25 @@ export const NavLinks = styled.ul`
   }
 `;
 
+// export const NavLink = styled(Link)`
+//   color: #fff;
+//   text-decoration: none;
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// `;
+
 export const NavLink = styled(Link)`
   color: #fff;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
   }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
 `;
 
 export const CartIcon = styled(FiShoppingCart)`
@@ -82,11 +90,9 @@ export const HamburgerIcon = styled(GiHamburgerMenu)`
   color: #fff;
   cursor: pointer;
   margin-left: 10px;
-
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
-
   @media screen and (min-width: 768px) {
     display: none;
   }
