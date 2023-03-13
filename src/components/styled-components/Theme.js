@@ -8,7 +8,8 @@ import { ThemeProvider } from "styled-components";
 
 const ColorTheme = {
   colors: {
-    primary: "#1a91da", // blue
+    primary: "linear-gradient(to bottom, #f7d1c2, #f2b6a2, #eb9c85, #e38269)", // background gradient
+    primaryColor: "#1a91da", // blue
     secondary: "#ffc107", // yellow
     success: "#2bcd36", // green
     rating: "#f76e1f", // orange

@@ -9,8 +9,8 @@ const NavSearchStyle = styled.input`
 
   &:focus {
     outline: none;
-    box-shadow: 0px 0px 3px ${({ theme }) => theme.colors.primary};
-    border: solid 1px ${({ theme }) => theme.colors.primary};
+    box-shadow: 0px 0px 3px ${({ theme }) => theme.colors.tertiary};
+    border: solid 1px ${({ theme }) => theme.colors.tertiary};
   }
 `;
 

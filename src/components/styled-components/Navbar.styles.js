@@ -12,7 +12,7 @@ export const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to bottom, #f7d1c2, #f2b6a2, #eb9c85, #e38269);
+  background: ${(props) => props.theme.colors.primary};
 
   color: ${({ theme }) => theme.colors.text};
   padding: 20px;

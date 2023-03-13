@@ -21,6 +21,11 @@ const Input = styled.input`
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
   border-radius: 4px;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 3px ${({ theme }) => theme.colors.tertiary};
+    border: solid 1px ${({ theme }) => theme.colors.tertiary};
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -28,6 +33,11 @@ const TextArea = styled.textarea`
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
   border-radius: 4px;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 3px ${({ theme }) => theme.colors.tertiary};
+    border: solid 1px ${({ theme }) => theme.colors.tertiary};
+  }
 `;
 
 // const SubmitButton = styled.button`

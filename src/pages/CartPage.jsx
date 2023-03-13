@@ -7,7 +7,6 @@ const Container = styled.div`
   align-items: center;
   height: 100vh;
 `;
-
 const ProductContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 4px;

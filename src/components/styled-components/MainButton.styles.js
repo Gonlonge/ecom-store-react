@@ -8,14 +8,15 @@ export const MainButton = styled.button`
   margin-top: 20px;
   font-size: 1rem;
   padding: 0.75rem 3rem 0.75rem 3rem;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: #fff;
+  background: ${(props) => props.theme.colors.primary};
+  color: ${({ theme }) => theme.colors.textLight};
   border: none;
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    background-color: ${({ theme }) => theme.colors.success};
-    transition: background-color 0.5s;
+    background: ${({ theme }) => theme.colors.success};
+    transition: background-color 1.5s;
   }
 `;
+
 export default MainButton;
