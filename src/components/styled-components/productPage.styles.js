@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
-export const GridContainer = styled.div`
-  @media screen and (max-width: 576px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
 export const GridItem = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 50px;
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0px 3px 6px ${({ theme }) => theme.colors.quaternary};
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const GridItemImage = styled.img`
@@ -41,3 +39,5 @@ export const GridItemPrice = styled.p`
   text-decoration: ${({ isDiscounted }) =>
     isDiscounted ? "none" : "line-through"};
 `;
+
+//
