@@ -39,5 +39,3 @@ export const GridItemPrice = styled.p`
   text-decoration: ${({ isDiscounted }) =>
     isDiscounted ? "none" : "line-through"};
 `;
-
-//
