@@ -68,7 +68,7 @@ function Home() {
             <GridItem key={post.id}>
               <GridItemImage src={post.imageUrl} alt={post.title} />
               <GridItemContent>
-                <Link to={`/ProductPage/${post.id}`}>
+                {/* <Link to={`/ProductPage/${post.id}`}>
                   <GridItemTitle>{post.title}</GridItemTitle>
                   {post.price !== post.discountedPrice && (
                     <GridItemPrice>{post.price}</GridItemPrice>
@@ -78,7 +78,7 @@ function Home() {
                   >
                     {post.discountedPrice}
                   </GridItemPrice>
-                </Link>
+                </Link> */}
               </GridItemContent>
             </GridItem>
           ))}
