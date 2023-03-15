@@ -26,7 +26,6 @@ function Home() {
           "https://api.noroff.dev/api/v1/online-shop"
         );
         const json = await response.json();
-        console.log(json);
         setPosts(json);
         setIsLoading(false);
       } catch (error) {
@@ -68,7 +67,7 @@ function Home() {
             <GridItem key={post.id}>
               <GridItemImage src={post.imageUrl} alt={post.title} />
               <GridItemContent>
-                {/* <Link to={`/ProductPage/${post.id}`}>
+                <Link to={`/ProductPage/${post.id}`}>
                   <GridItemTitle>{post.title}</GridItemTitle>
                   {post.price !== post.discountedPrice && (
                     <GridItemPrice>{post.price}</GridItemPrice>
@@ -78,7 +77,7 @@ function Home() {
                   >
                     {post.discountedPrice}
                   </GridItemPrice>
-                </Link> */}
+                </Link>
               </GridItemContent>
             </GridItem>
           ))}
