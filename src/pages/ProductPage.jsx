@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
 import cardImage from "../images/ecom-card.png";
+
 import MainButton from "../components/styled-components/MainButton.styles";
 import { MainContainer } from "../components/styled-components/Body.styles";
 import {
@@ -17,7 +18,7 @@ const url = "https://api.noroff.dev/api/v1/online-shop";
 function ProductPage() {
   const { id } = useParams();
   const [post, setPost] = useState({});
-  const [reviews, setReviews] = useState([]);
+  // const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   console.log(`ProductPage rendered with id: ${id}`);
@@ -32,7 +33,7 @@ function ProductPage() {
         const json = await response.json();
         console.log(json);
         setPost(json);
-        setReviews(json.reviews);
+        // setReviews(json.reviews);
 
         setIsLoading(false);
       } catch (error) {
@@ -52,12 +53,12 @@ function ProductPage() {
     return <div>Error loading data</div>;
   }
 
-  const reviewList = reviews.map((review) => (
-    <div key={review.id}>
-      <p>{review.description}</p>
-      <p>Rating: {review.rating}</p>
-    </div>
-  ));
+  // const reviewList = reviews.map((review) => (
+  //   <div key={review.id}>
+  //     <p>{review.description}</p>
+  //     <p>Rating: {review.rating}</p>
+  //   </div>
+  // ));
 
   return (
     <MainContainer>
@@ -76,12 +77,9 @@ function ProductPage() {
           <MainButton>Add To Cart</MainButton>
         </GridItemContent>
       </GridItem>
-      {/*  */}
 
       <GridItem>
-        <GridItemContent>
-          <p>{reviewList}</p>
-        </GridItemContent>
+        {/* <GridItemContent>{reviewList}</GridItemContent> */}
         <GridItemImage src={cardImage} alt="My Image" />
       </GridItem>
     </MainContainer>

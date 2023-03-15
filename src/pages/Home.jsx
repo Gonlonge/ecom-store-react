@@ -26,6 +26,7 @@ function Home() {
           "https://api.noroff.dev/api/v1/online-shop"
         );
         const json = await response.json();
+        console.log(json);
         setPosts(json);
         setIsLoading(false);
       } catch (error) {
