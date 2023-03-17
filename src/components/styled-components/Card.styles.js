@@ -28,6 +28,7 @@ export const GridItem = styled.div`
   justify-content: space-between;
 `;
 
+// TODO must clean up, its alreaddy in ProductPage.styles.js
 export const GridItemImage = styled.img`
   width: 100%;
   height: 100%;

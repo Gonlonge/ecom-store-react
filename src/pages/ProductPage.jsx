@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import styled from "styled-components";
 import cardImage from "../images/ecom-card.png";
-import MainButton from "../components/styled-components/MainButton.styles";
+import AddToCart from "../components/AddToCart";
 import { MainContainer } from "../components/styled-components/Body.styles";
 import {
   GridItem,
@@ -11,36 +10,33 @@ import {
   GridItemTitle,
   GridItemPrice,
 } from "../components/styled-components/ProductPage.styles";
+import ReviewList from "../components/ReviewList";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
 function ProductPage() {
   const { id } = useParams();
-  const [post, setPost] = useState({});
+  const [product, setProduct] = useState({});
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  console.log(`ProductPage rendered with id: ${id}`);
 
   useEffect(() => {
     async function getData() {
       try {
         setIsError(false);
-
         setIsLoading(true);
         const response = await fetch(`${url}/${id}`);
         const json = await response.json();
         console.log(json);
-        setPost(json);
+        setProduct(json);
         setReviews(json.reviews);
-
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
         setIsError(true);
       }
     }
-
     getData();
   }, [id]);
 
@@ -52,32 +48,29 @@ function ProductPage() {
     return <div>Error loading data</div>;
   }
 
-  const reviewList = reviews.map((review) => (
-    <div key={review.id}>
-      <p>{review.description}</p>
-      <p>Rating: {review.rating}</p>
-    </div>
-  ));
-
   return (
     <MainContainer>
       <GridItem>
-        <GridItemImage src={post.imageUrl} alt={post.title} />
+        <GridItemImage src={product.imageUrl} alt={product.title} />
         <GridItemContent>
-          <GridItemTitle>{post.title}</GridItemTitle>
-          <p>{post.description}</p>
-          {post.price !== post.discountedPrice && (
-            <GridItemPrice>{post.price}</GridItemPrice>
+          <GridItemTitle>{product.title}</GridItemTitle>
+          <p>{product.description}</p>
+          {product.price !== product.discountedPrice && (
+            <GridItemPrice>{product.price}</GridItemPrice>
           )}
-          <GridItemPrice isDiscounted={post.price !== post.discountedPrice}>
-            {post.discountedPrice}
+          <GridItemPrice
+            isDiscounted={product.price !== product.discountedPrice}
+          >
+            {product.discountedPrice}
           </GridItemPrice>
-          <p>Tags: {post.tags}</p>
-          <MainButton>Add To Cart</MainButton>
+          <AddToCart price={product.price} />
         </GridItemContent>
       </GridItem>
       <GridItem>
-        <GridItemContent>{reviewList}</GridItemContent>
+        <GridItemContent>
+          <ReviewList reviews={reviews} />
+          <p>Tags: {product.tags}</p>
+        </GridItemContent>
         <GridItemImage src={cardImage} alt="My Image" />
       </GridItem>
     </MainContainer>

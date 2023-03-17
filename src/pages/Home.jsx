@@ -63,6 +63,8 @@ function Home() {
             onSearchInputChange={handleSearchInputChange}
           />
         </div>
+      </MainContainer>
+      <MainContainer>
         <GridContainer>
           {filteredPosts.map((post) => (
             <GridItem key={post.id}>

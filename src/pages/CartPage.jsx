@@ -1,5 +1,7 @@
+import React from "react";
+
 function CartPage() {
-  return <h1>cart page</h1>;
+  return <div>cart page</div>;
 }
 
 export default CartPage;

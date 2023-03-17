@@ -7,3 +7,5 @@
 # npm install @fortawesome/react-fontawesome
 
 # npm install react-icons
+
+# npm i zustand
