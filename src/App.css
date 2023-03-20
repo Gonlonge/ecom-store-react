@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-size: 1.2rem;
+}
+
 .color {
   color: #2da1c8;
 }

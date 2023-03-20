@@ -9,7 +9,7 @@ export const NavBackground = styled.div`
 
 export const NavContainer = styled.nav`
   padding: 11px;
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(theme) => theme.theme.colors.primary};
   color: ${({ theme }) => theme.colors.text};
 `;
 

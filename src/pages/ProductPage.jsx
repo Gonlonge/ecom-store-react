@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import cardImage from "../images/ecom-card.png";
 import AddToCart from "../components/AddToCart";
+import ReviewList from "../components/ReviewList";
 import { MainContainer } from "../components/styled-components/Body.styles";
 import {
-  GridItem,
-  GridItemImage,
-  GridItemContent,
-  GridItemTitle,
   GridItemPrice,
-} from "../components/styled-components/ProductPage.styles";
-import ReviewList from "../components/ReviewList";
+  GridItemContent,
+  GridItemImage,
+  GridItemIndividual,
+} from "../components/styled-components/Card.styles";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
@@ -50,29 +48,25 @@ function ProductPage() {
 
   return (
     <MainContainer>
-      <GridItem>
+      <GridItemIndividual>
         <GridItemImage src={product.imageUrl} alt={product.title} />
         <GridItemContent>
-          <GridItemTitle>{product.title}</GridItemTitle>
+          <h2>{product.title}</h2>
           <p>{product.description}</p>
           {product.price !== product.discountedPrice && (
-            <GridItemPrice>{product.price}</GridItemPrice>
+            <GridItemPrice isDiscounted={true}>{product.price}</GridItemPrice>
           )}
-          <GridItemPrice
-            isDiscounted={product.price !== product.discountedPrice}
-          >
+          <GridItemPrice isDiscounted={false}>
             {product.discountedPrice}
           </GridItemPrice>
+
           <AddToCart price={product.price} />
         </GridItemContent>
-      </GridItem>
-      <GridItem>
-        <GridItemContent>
-          <ReviewList reviews={reviews} />
-          <p>Tags: {product.tags}</p>
-        </GridItemContent>
-        <GridItemImage src={cardImage} alt="My Image" />
-      </GridItem>
+      </GridItemIndividual>
+      <GridItemContent>
+        <ReviewList reviews={reviews} />
+        <p>Tags: {product.tags}</p>
+      </GridItemContent>
     </MainContainer>
   );
 }

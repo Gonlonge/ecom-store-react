@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
-  margin-top: 50px;
+  margin-top: 200px;
   background: ${(props) => props.theme.colors.primary};
   border-top: 1px solid ${({ theme }) => theme.colors.tertiary};
   box-shadow: 0px -10px 11px -1px ${({ theme }) => theme.colors.quaternary};
@@ -15,5 +15,9 @@ const FooterText = styled.p`
   padding: 50px;
   margin-bottom: 0px;
 `;
+
+// const footerPushDown = styled.p`
+//   min-height: calc(100vh - 160px);
+// `;
 
 export { FooterWrapper, FooterText };

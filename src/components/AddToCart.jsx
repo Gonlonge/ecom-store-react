@@ -25,7 +25,8 @@ const useProductsStore = create((set) => ({
   clearCount: () => set({ count: 0, totalPrice: 0 }),
 }));
 function AddToCart({ price }) {
-  const { count, addOne, removeOne, clearCount, totalPrice } = useProductsStore(
+  // If i want to add clearCount,
+  const { count, addOne, removeOne, totalPrice } = useProductsStore(
     (state) => ({
       count: state.count,
       totalPrice: state.totalPrice,
@@ -44,9 +45,10 @@ function AddToCart({ price }) {
       <CartButton onClick={() => addOne(price)}>+</CartButton>
       <CountDisplay>{count}</CountDisplay>
       <CartButton onClick={() => removeOne(price)}>-</CartButton>
-      {/* <CartButton onClick={clearCount}>Clear</CartButton> */}
+      {/*   // If i want to add clearCount <CartButton onClick={clearCount}>Clear</CartButton> */}
     </CartContainer>
   );
 }
 
 export default AddToCart;
+export { useProductsStore };

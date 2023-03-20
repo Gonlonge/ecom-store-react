@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
+import MainButton from "../components/styled-components/MainButton.styles";
 import { MainContainer } from "../components/styled-components/Body.styles";
 import {
   GridContainer,
@@ -70,16 +71,17 @@ function Home() {
             <GridItem key={post.id}>
               <GridItemImage src={post.imageUrl} alt={post.title} />
               <GridItemContent>
-                <Link to={`/ProductPage/${post.id}`}>
-                  <GridItemTitle>{post.title}</GridItemTitle>
-                  {post.price !== post.discountedPrice && (
-                    <GridItemPrice>{post.price}</GridItemPrice>
-                  )}
-                  <GridItemPrice
-                    isDiscounted={post.price !== post.discountedPrice}
-                  >
-                    {post.discountedPrice}
+                <GridItemTitle>{post.title}</GridItemTitle>
+                {post.price !== post.discountedPrice && (
+                  <GridItemPrice isDiscounted={true}>
+                    {post.price}
                   </GridItemPrice>
+                )}
+                <GridItemPrice isDiscounted={false}>
+                  {post.discountedPrice}
+                </GridItemPrice>
+                <Link to={`/ProductPage/${post.id}`}>
+                  <MainButton>View</MainButton>
                 </Link>
               </GridItemContent>
             </GridItem>

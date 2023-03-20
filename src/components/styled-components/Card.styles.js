@@ -28,7 +28,19 @@ export const GridItem = styled.div`
   justify-content: space-between;
 `;
 
-// TODO must clean up, its alreaddy in ProductPage.styles.js
+export const GridItemIndividual = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 50px;
+  border: 1px solid ${({ theme }) => theme.colors.tertiary};
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 3px 6px ${({ theme }) => theme.colors.quaternary};
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
 export const GridItemImage = styled.img`
   width: 100%;
   height: 100%;
@@ -41,7 +53,6 @@ export const GridItemContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1;
 `;
 
 export const GridItemTitle = styled.h2`
@@ -54,5 +65,23 @@ export const GridItemPrice = styled.p`
   color: ${({ theme, isDiscounted }) =>
     isDiscounted ? theme.colors.danger : "inherit"};
   text-decoration: ${({ isDiscounted }) =>
-    isDiscounted ? "none" : "line-through"};
+    isDiscounted ? "line-through" : "none"};
 `;
+
+// template
+
+// export const GridItemPrice = styled.p`
+//   font-size: 1.2rem;
+//   font-weight: 600;
+//   color: ${({ theme, isDiscounted }) =>
+//     isDiscounted ? theme.colors.danger : "inherit"};
+//   text-decoration: ${({ isDiscounted }) =>
+//     isDiscounted ? "line-through" : "none"};
+// `;
+
+// {post.price !== post.discountedPrice && (
+//   <GridItemPrice isDiscounted={true}>{post.price}</GridItemPrice>
+// )}
+// <GridItemPrice isDiscounted={false}>
+//   {post.discountedPrice}
+// </GridItemPrice>
