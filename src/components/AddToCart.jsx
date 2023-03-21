@@ -1,4 +1,3 @@
-// AddToCart.jsx
 import React from "react";
 import { create } from "zustand";
 import { shallow } from "zustand/shallow";
@@ -24,8 +23,8 @@ const useProductsStore = create((set) => ({
     })),
   clearCount: () => set({ count: 0, totalPrice: 0 }),
 }));
+
 function AddToCart({ price }) {
-  // If i want to add clearCount,
   const { count, addOne, removeOne, totalPrice } = useProductsStore(
     (state) => ({
       count: state.count,
@@ -45,7 +44,7 @@ function AddToCart({ price }) {
       <CartButton onClick={() => addOne(price)}>+</CartButton>
       <CountDisplay>{count}</CountDisplay>
       <CartButton onClick={() => removeOne(price)}>-</CartButton>
-      {/*   // If i want to add clearCount <CartButton onClick={clearCount}>Clear</CartButton> */}
+      {/* If you want to add clearCount <CartButton onClick={clearCount}>Clear</CartButton> */}
     </CartContainer>
   );
 }

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FiShoppingCart } from "react-icons/fi";
 
 export const NavBackground = styled.div`
   margin-bottom: 50px;
@@ -39,10 +38,4 @@ export const NavLink = styled(Link)`
   align-items: center;
   width: 100px;
   height: 50px;
-`;
-
-export const CartIcon = styled(FiShoppingCart)`
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
 `;

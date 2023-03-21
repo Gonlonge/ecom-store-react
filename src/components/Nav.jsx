@@ -6,8 +6,9 @@ import {
   NavLogo,
   NavLinks,
   NavLink,
-  CartIcon,
 } from "./styled-components/Navbar.styles";
+
+import CartIconWithCounter from "./CartIconWithCounter";
 
 const Nav = () => {
   return (
@@ -27,7 +28,7 @@ const Nav = () => {
             </li>
             <li>
               <NavLink to="/cartPage">
-                <CartIcon />
+                <CartIconWithCounter />
               </NavLink>
             </li>
           </NavLinks>
