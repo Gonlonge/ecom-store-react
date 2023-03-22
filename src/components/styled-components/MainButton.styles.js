@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainButton = styled.button`
+const MainButton = styled.button`
   display: block;
   margin: 0 auto;
   text-align: center;

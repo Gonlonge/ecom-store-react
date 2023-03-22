@@ -8,7 +8,7 @@ import {
   CartButton,
 } from "../components/styled-components/AddToCart.styles";
 
-const useProductsStore = create((set) => ({
+export const useProductsStore = create((set) => ({
   count: 0,
   totalPrice: 0,
   addOne: (price) =>
@@ -50,4 +50,3 @@ function AddToCart({ price }) {
 }
 
 export default AddToCart;
-export { useProductsStore };

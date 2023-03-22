@@ -7,7 +7,6 @@ import {
   NavLinks,
   NavLink,
 } from "./styled-components/Navbar.styles";
-
 import CartIconWithCounter from "./CartIconWithCounter";
 
 const Nav = () => {
