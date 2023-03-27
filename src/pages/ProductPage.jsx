@@ -59,8 +59,7 @@ function ProductPage() {
           <GridItemPrice isDiscounted={false}>
             {product.discountedPrice}
           </GridItemPrice>
-
-          <AddToCart price={product.price} />
+          <AddToCart product={product} />
         </GridItemContent>
       </GridItemIndividual>
       <GridItemContent>

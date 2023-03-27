@@ -9,29 +9,39 @@ import {
 } from "../components/styled-components/AddToCart.styles";
 
 export const useProductsStore = create((set) => ({
+  // initial state
+  products: [],
   count: 0,
   totalPrice: 0,
-  addOne: (price) =>
+  // addProduct and removeProduct remain the same
+  addProduct: (product) =>
     set((state) => ({
+      products: [...state.products, product],
       count: state.count + 1,
-      totalPrice: state.totalPrice + price,
+      totalPrice: state.totalPrice + product.price,
     })),
-  removeOne: (price) =>
+  removeProduct: (index, price) =>
     set((state) => ({
+      products: state.products.filter((_, i) => i !== index),
       count: Math.max(0, state.count - 1),
       totalPrice: Math.max(0, state.totalPrice - price),
     })),
-  clearCount: () => set({ count: 0, totalPrice: 0 }),
+  // new function to clear the cart
+  clearCart: () =>
+    set(() => ({
+      products: [],
+      count: 0,
+      totalPrice: 0,
+    })),
 }));
 
-function AddToCart({ price }) {
-  const { count, addOne, removeOne, totalPrice } = useProductsStore(
+function AddToCart({ product }) {
+  const { count, addProduct, removeProduct, totalPrice } = useProductsStore(
     (state) => ({
       count: state.count,
       totalPrice: state.totalPrice,
-      addOne: state.addOne,
-      removeOne: state.removeOne,
-      clearCount: state.clearCount,
+      addProduct: state.addProduct,
+      removeProduct: state.removeProduct,
     }),
     shallow
   );
@@ -41,10 +51,12 @@ function AddToCart({ price }) {
       <TotalPriceDisplay>
         Total Price: {totalPrice.toFixed(2)}
       </TotalPriceDisplay>
-      <CartButton onClick={() => addOne(price)}>+</CartButton>
+      <CartButton onClick={() => addProduct(product)}>+</CartButton>
       <CountDisplay>{count}</CountDisplay>
-      <CartButton onClick={() => removeOne(price)}>-</CartButton>
-      {/* If you want to add clearCount <CartButton onClick={clearCount}>Clear</CartButton> */}
+      <CartButton onClick={() => removeProduct(product.id, product.price)}>
+        -
+      </CartButton>
+      {/* If you want to add clearCart <CartButton onClick={clearCart}>Clear</CartButton> */}
     </CartContainer>
   );
 }
