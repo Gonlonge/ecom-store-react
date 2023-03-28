@@ -10,6 +10,7 @@ import {
   GridItemContent,
   GridItemTitle,
   GridItemPrice,
+  DiscountedPrice,
 } from "../components/styled-components/Card.styles";
 
 function Home() {
@@ -77,9 +78,13 @@ function Home() {
                     {post.price}
                   </GridItemPrice>
                 )}
-                <GridItemPrice isDiscounted={false}>
-                  {post.discountedPrice}
-                </GridItemPrice>
+                {post.price !== post.discountedPrice ? (
+                  <DiscountedPrice>{post.discountedPrice}</DiscountedPrice>
+                ) : (
+                  <GridItemPrice isDiscounted={false}>
+                    {post.price}
+                  </GridItemPrice>
+                )}
                 <Link to={`/ProductPage/${post.id}`}>
                   <MainButton>View</MainButton>
                 </Link>

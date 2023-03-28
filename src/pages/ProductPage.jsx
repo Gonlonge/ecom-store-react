@@ -8,6 +8,7 @@ import {
   GridItemContent,
   GridItemImage,
   GridItemIndividual,
+  DiscountedPrice,
 } from "../components/styled-components/Card.styles";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
@@ -56,9 +57,11 @@ function ProductPage() {
           {product.price !== product.discountedPrice && (
             <GridItemPrice isDiscounted={true}>{product.price}</GridItemPrice>
           )}
-          <GridItemPrice isDiscounted={false}>
-            {product.discountedPrice}
-          </GridItemPrice>
+          {product.price !== product.discountedPrice ? (
+            <DiscountedPrice>{product.discountedPrice}</DiscountedPrice>
+          ) : (
+            <GridItemPrice isDiscounted={false}>{product.price}</GridItemPrice>
+          )}
           <AddToCart product={product} />
         </GridItemContent>
       </GridItemIndividual>

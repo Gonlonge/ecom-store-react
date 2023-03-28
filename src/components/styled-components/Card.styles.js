@@ -62,10 +62,14 @@ export const GridItemTitle = styled.h2`
 export const GridItemPrice = styled.p`
   font-size: 1.2rem;
   font-weight: 600;
-  color: ${({ theme, isDiscounted }) =>
-    isDiscounted ? theme.colors.danger : "inherit"};
+  color: inherit;
   text-decoration: ${({ isDiscounted }) =>
     isDiscounted ? "line-through" : "none"};
+`;
+
+export const DiscountedPrice = styled(GridItemPrice)`
+  color: ${({ theme }) => theme.colors.danger};
+  text-decoration: none;
 `;
 
 // template
