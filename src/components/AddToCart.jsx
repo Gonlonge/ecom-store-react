@@ -5,8 +5,9 @@ import {
   CartContainer,
   CountDisplay,
   TotalPriceDisplay,
-  CartButton,
 } from "../components/styled-components/AddToCart.styles";
+
+import { CartButton } from "./styled-components/Buttons.styles";
 
 export const useProductsStore = create((set) => {
   const storedCart = JSON.parse(localStorage.getItem("cart")) || {
@@ -30,6 +31,7 @@ export const useProductsStore = create((set) => {
         count: Math.max(0, state.count - 1),
         totalPrice: Math.max(0, state.totalPrice - price),
       })),
+
     clearCart: () =>
       set(() => ({
         products: [],
@@ -74,8 +76,10 @@ function AddToCart({ product }) {
   };
 
   const handleRemoveClick = () => {
-    removeProduct(product.id, product.price);
-    setProductCount((prevCount) => Math.max(0, prevCount - 1));
+    if (productCount > 0) {
+      removeProduct(product.id, product.price);
+      setProductCount((prevCount) => prevCount - 1);
+    }
   };
 
   return (
@@ -85,7 +89,9 @@ function AddToCart({ product }) {
       </TotalPriceDisplay>
       <CartButton onClick={handleAddClick}>+</CartButton>
       <CountDisplay>{productCount}</CountDisplay>
-      <CartButton onClick={handleRemoveClick}>-</CartButton>
+      <CartButton onClick={handleRemoveClick} disabled={productCount === 0}>
+        -
+      </CartButton>
     </CartContainer>
   );
 }

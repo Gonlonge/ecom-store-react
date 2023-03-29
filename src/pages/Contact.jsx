@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { MainContainer } from "../components/styled-components/Body.styles";
-import MainButton from "../components/styled-components/MainButton.styles";
+import MainButton from "../components/styled-components/Buttons.styles";
 
 const Form = styled.form`
   display: grid;

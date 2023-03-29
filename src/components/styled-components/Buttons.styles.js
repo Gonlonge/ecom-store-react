@@ -16,7 +16,21 @@ const MainButton = styled.button`
   &:hover {
     background: ${({ theme }) => theme.colors.success};
     color: ${({ theme }) => theme.colors.textDark};
-    transition: background-color 1.5s;
+  }
+`;
+
+export const CartButton = styled.button`
+  background: ${(props) => props.theme.colors.primary};
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background: ${({ theme }) => theme.colors.success};
+    color: ${({ theme }) => theme.colors.textDark};
   }
 `;
 
