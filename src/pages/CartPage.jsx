@@ -63,9 +63,11 @@ function CartPage() {
       <CartSummaryContainer>
         <p>{count} Items</p>
         <p>Total Price: {totalPrice.toFixed(2)}</p>
-        <Link to="/CheckoutSuccess">
-          <MainButton>Purchase</MainButton>
-        </Link>
+        {count > 0 && (
+          <Link to="/CheckoutSuccess">
+            <MainButton>Purchase</MainButton>
+          </Link>
+        )}
       </CartSummaryContainer>
     </MainContainer>
   );
