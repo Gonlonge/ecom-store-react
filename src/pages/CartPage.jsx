@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useProductsStore } from "../components/AddToCart";
+import { CountDisplay } from "../components/styled-components/AddToCart.styles";
 import styled from "styled-components";
 import { MainContainer } from "../components/styled-components/Body.styles";
 import MainButton from "../components/styled-components/Buttons.styles";
@@ -43,17 +44,36 @@ function CartPage() {
       addProduct: state.addProduct,
     }));
 
+  const getProductCount = (product) => {
+    const filteredProducts = products.filter((p) => p.id === product.id);
+    return filteredProducts.length;
+  };
+
+  const uniqueProducts = Array.from(new Set(products.map((p) => p.id))).map(
+    (id) => {
+      return products.find((p) => p.id === id);
+    }
+  );
+
   return (
     <MainContainer>
-      {products.map((product, index) => (
-        <CartItemContainer key={`${product.id}-${index}`}>
+      {uniqueProducts.map((product) => (
+        <CartItemContainer key={product.id}>
           <CartItemImage src={product.imageUrl} alt={product.title} />
           <div>
             <h2>{product.title}</h2>
             <p>Price: {product.price}</p>
             <CartItemButtonsContainer>
               <CartButton onClick={() => addProduct(product)}>+</CartButton>
-              <CartButton onClick={() => removeProduct(index, product.price)}>
+              <CountDisplay>{getProductCount(product)}</CountDisplay>
+              <CartButton
+                onClick={() =>
+                  removeProduct(
+                    products.findIndex((p) => p.id === product.id),
+                    product.price
+                  )
+                }
+              >
                 -
               </CartButton>
             </CartItemButtonsContainer>

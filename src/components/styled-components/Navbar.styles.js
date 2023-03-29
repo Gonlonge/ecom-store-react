@@ -13,7 +13,7 @@ export const NavContainer = styled.nav`
 `;
 
 export const NavLogo = styled(Link)`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
