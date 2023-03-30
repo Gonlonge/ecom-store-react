@@ -64,8 +64,6 @@ function CartPage() {
             <h2>{product.title}</h2>
             <p>Price: {product.price}</p>
             <CartItemButtonsContainer>
-              <CartButton onClick={() => addProduct(product)}>+</CartButton>
-              <CountDisplay>{getProductCount(product)}</CountDisplay>
               <CartButton
                 onClick={() =>
                   removeProduct(
@@ -76,6 +74,8 @@ function CartPage() {
               >
                 -
               </CartButton>
+              <CountDisplay>{getProductCount(product)}</CountDisplay>
+              <CartButton onClick={() => addProduct(product)}>+</CartButton>
             </CartItemButtonsContainer>
           </div>
         </CartItemContainer>
