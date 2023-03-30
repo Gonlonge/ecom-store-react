@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { create } from "zustand";
 import { shallow } from "zustand/shallow";
 import {
@@ -56,10 +56,7 @@ useProductsStore.subscribe(
   }
 );
 
-// productCount
 function AddToCart({ product }) {
-  const [setProductCount] = useState(0);
-
   const { addProduct, totalPrice } = useProductsStore(
     (state) => ({
       count: state.count,
@@ -72,15 +69,7 @@ function AddToCart({ product }) {
 
   const handleAddClick = () => {
     addProduct(product);
-    setProductCount((prevCount) => prevCount + 1);
   };
-
-  // const handleRemoveClick = () => {
-  //   if (productCount > 0) {
-  //     removeProduct(product.id, product.price);
-  //     setProductCount((prevCount) => prevCount - 1);
-  //   }
-  // };
 
   return (
     <CartContainer>
@@ -88,10 +77,6 @@ function AddToCart({ product }) {
       <TotalPriceDisplay>
         Total Price: {totalPrice.toFixed(2)}
       </TotalPriceDisplay>
-      {/* <CountDisplay>{productCount}</CountDisplay>
-      <CartButton onClick={handleRemoveClick} disabled={productCount === 0}>
-        -
-      </CartButton> */}
     </CartContainer>
   );
 }
