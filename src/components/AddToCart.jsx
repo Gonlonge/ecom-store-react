@@ -3,7 +3,6 @@ import { create } from "zustand";
 import { shallow } from "zustand/shallow";
 import {
   CartContainer,
-  CountDisplay,
   TotalPriceDisplay,
 } from "../components/styled-components/AddToCart.styles";
 
@@ -57,10 +56,11 @@ useProductsStore.subscribe(
   }
 );
 
+// productCount
 function AddToCart({ product }) {
-  const [productCount, setProductCount] = useState(0);
+  const [setProductCount] = useState(0);
 
-  const { addProduct, removeProduct, totalPrice } = useProductsStore(
+  const { addProduct, totalPrice } = useProductsStore(
     (state) => ({
       count: state.count,
       totalPrice: state.totalPrice,
@@ -75,23 +75,23 @@ function AddToCart({ product }) {
     setProductCount((prevCount) => prevCount + 1);
   };
 
-  const handleRemoveClick = () => {
-    if (productCount > 0) {
-      removeProduct(product.id, product.price);
-      setProductCount((prevCount) => prevCount - 1);
-    }
-  };
+  // const handleRemoveClick = () => {
+  //   if (productCount > 0) {
+  //     removeProduct(product.id, product.price);
+  //     setProductCount((prevCount) => prevCount - 1);
+  //   }
+  // };
 
   return (
     <CartContainer>
+      <CartButton onClick={handleAddClick}>Add To Cart</CartButton>
       <TotalPriceDisplay>
         Total Price: {totalPrice.toFixed(2)}
       </TotalPriceDisplay>
-      <CartButton onClick={handleAddClick}>+</CartButton>
-      <CountDisplay>{productCount}</CountDisplay>
+      {/* <CountDisplay>{productCount}</CountDisplay>
       <CartButton onClick={handleRemoveClick} disabled={productCount === 0}>
         -
-      </CartButton>
+      </CartButton> */}
     </CartContainer>
   );
 }

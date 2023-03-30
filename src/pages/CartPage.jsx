@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useProductsStore } from "../components/AddToCart";
 import { CountDisplay } from "../components/styled-components/AddToCart.styles";
 import styled from "styled-components";
-import { MainContainer } from "../components/styled-components/Body.styles";
+import { MainContainerXs } from "../components/styled-components/Body.styles";
 import MainButton from "../components/styled-components/Buttons.styles";
 import { CartButton } from "../components/styled-components/Buttons.styles";
 
@@ -56,7 +56,7 @@ function CartPage() {
   );
 
   return (
-    <MainContainer>
+    <MainContainerXs>
       {uniqueProducts.map((product) => (
         <CartItemContainer key={product.id}>
           <CartItemImage src={product.imageUrl} alt={product.title} />
@@ -89,7 +89,7 @@ function CartPage() {
           </Link>
         )}
       </CartSummaryContainer>
-    </MainContainer>
+    </MainContainerXs>
   );
 }
 

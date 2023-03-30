@@ -15,5 +15,5 @@ export const CountDisplay = styled.div`
 
 export const TotalPriceDisplay = styled.div`
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
 `;

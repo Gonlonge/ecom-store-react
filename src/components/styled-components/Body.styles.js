@@ -5,3 +5,9 @@ export const MainContainer = styled.div`
   margin: 0px auto;
   padding: 0px 20px;
 `;
+
+export const MainContainerXs = styled.div`
+  max-width: 700px;
+  margin: 0px auto;
+  padding: 0px 20px;
+`;
