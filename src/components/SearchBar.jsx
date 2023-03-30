@@ -6,7 +6,6 @@ const NavSearchStyle = styled.input`
   border-radius: 5px;
   margin: 0px 0px 20px 0px;
   border: solid 1px ${({ theme }) => theme.colors.tertiary};
-
   &:focus {
     outline: none;
     box-shadow: 0px 0px 3px ${({ theme }) => theme.colors.tertiary};
