@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# JS Framework
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+College: Noroff - Frondend developer
+Date: 04.2022
 
-## Available Scripts
+![portofoli-ecom-js-framework](https://github.com/Gonlonge/ecom-store-react/assets/89197537/d2326edf-c925-4a58-8daf-0d7405ea7566)
 
-In the project directory, you can run:
 
-### `npm start`
+## Brief
+Using API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You are tasked with build out the following pages for an eCom store:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Homepage
+Individual product page
+Cart page
+Checkout success page
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+- React
+- styled-components
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Designed With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Adobe XD
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project planning
 
-### `npm run eject`
+- Trello Board
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## User Stories
+The client has specified the following requirements in the form of User Stories:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A user may view a list of Venues
+A user may search for a specific Venue
+A user may view a specific Venue page by id
+A user may view a calendar with available dates for a Venue
+A user with a stud.noroff.no email may register as a customer
+A registered customer may create a booking at a Venue
+A registered customer may view their upcoming bookings
+A user with a stud.noroff.no email may register as a Venue manager
+A registered Venue manager may create a Venue
+A registered Venue manager may update a Venue they manage
+A registered Venue manager may delete a Venue they manage
+A registered Venue manager may view bookings for a Venue they manage
+A registered user may login
+A registered user may update their avatar
+A registered user may logout
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## The Homepage should have a list of all the products. There should be a look-ahead search bar that filters products when typing in a product name. Clicking on a product should take a user to an individual product page.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You pages should use a <Layout> component that contains a header and footer. The header should contain a nav bar as well as a Cart icon component that acts as a button as well as displays the current number of items in the cart.
 
-## Learn More
+The individual product page should display data for a single product. There should be an Add to cart button which, upon clicking, adds the product to the cart. The product page should display the title of the product, the description and the image. There should also be reviews listed for the product, if there are any. You should use the discountedPrice property to display the price of the product. If there is a difference between the discountedPrice and price properties then that means there is a discount for that product. Calculate what this discount is and display it on the page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Clicking on the Cart icon will load the Cart page, which will list all of the products as well as a total. The Cart page will have a Checkout button. Clicking this Checkout button then goes to a Checkout success page.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The Checkout success page will display a message to the user notifying them that their order was successful. There should also be a link that lets a user go back to the store. The cart must be cleared if the user gets to the Checkout success page.
 
-### Code Splitting
+There will be a contact page which will contain a contact form with the following fields. There must be form validation:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Full name (Minimum number of characters is 3, required)
+Subject (Minimum number of characters is 3, required)
+Email (Must be a valid email address, required)
+Body (Minimum number of characters is 3, required)
+You will be using React Router to switch between pages.
 
-### Analyzing the Bundle Size
+Your design should be responsive. You are welcome to use a CSS Framework, however, you’re encouraged to design from scratch and use styled-components or CSS Modules.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Pictures
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Free pictures
+- Private pictures
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Netlify
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
